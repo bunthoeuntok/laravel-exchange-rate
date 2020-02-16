@@ -1,0 +1,36 @@
+/* Write your custom CSS here */
+
+/*Custom Jquery Validation Style*/
+.error {
+	border-color: #ec5e69 !important;
+}
+label.error {
+	float: none !important;
+	margin-bottom: 0 !important;
+}
+
+/*lOGIN PAGE*/
+.login-content {
+	text-align: left !important;
+}
+.login-box {
+	left: 0 !important;
+}
+
+.login-body {
+	float: none !important;
+}
+
+/*Error Pages*/
+.error-info {
+	text-align: left !important;
+}
+
+.page-inner {
+	height: calc(100vh - 61px) !important;
+}
+
+/*Sidebar Menus*/
+.secondary-sidebar-menu {
+    overflow-x: hidden !important;
+}
