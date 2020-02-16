@@ -1,5 +1,5 @@
 <div class="page-header">
-    <div class="search-form">
+    {{-- <div class="search-form">
         <form action="#" method="GET">
             <div class="input-group">
                 <input type="text" name="search" class="form-control search-input" placeholder="Type something...">
@@ -8,7 +8,7 @@
                 </span>
             </div>
         </form>
-    </div>
+    </div> --}}
     <nav class="navbar navbar-default navbar-expand-md">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -28,7 +28,7 @@
                 <ul class="nav navbar-nav mr-auto">
                     <li class="collapsed-sidebar-toggle-inv"><a href="javascript:void(0)" id="collapsed-sidebar-toggle-button"><i class="fas fa-bars"></i></a></li>
                     <li><a href="javascript:void(0)" id="toggle-fullscreen"><i class="fas fa-expand"></i></a></li>
-                    <li><a href="javascript:void(0)" id="search-button"><i class="fas fa-search"></i></a></li>
+                    {{-- <li><a href="javascript:void(0)" id="search-button"><i class="fas fa-search"></i></a></li> --}}
                 </ul>
             </div><!-- /.navbar-collapse -->
             <ul class="nav navbar-nav">
@@ -68,15 +68,19 @@
                     </ul>
                 </li>
                 <li class="dropdown nav-item d-md-block">
-                    <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="../../assets/images/avatars/avatar1.png" alt="" class="rounded-circle"></a>
+                    <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="{{ asset('images/avatars/avatar1.png') }}" alt="" class="rounded-circle"></a>
                     <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                         <li><a href="#">Profile</a></li>
                         <li><a href="#">Calendar</a></li>
                         <li><a href="#"><span class="badge float-right badge-info">64</span>Messages</a></li>
                         <li role="separator" class="divider"></li>
                         <li><a href="#">Account Settings</a></li>
-                        <li><a href="#">Log Out</a></li>
+                        <li><a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a></li>
                     </ul>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
                 </li>
             </ul>
         </div>

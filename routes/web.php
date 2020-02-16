@@ -24,6 +24,7 @@ Route::group([
 	],
 	function() {
 		Route::get('users/export', 'UserController@export')->name('users.export');
+		Route::get('users/get', 'UserController@getUsers')->name('users.get');
 		Route::resource('users', 'UserController');
 	}
 );

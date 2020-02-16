@@ -7,6 +7,7 @@ use App\User\User;
 use Illuminate\Http\Request;
 use App\Exports\UserExport;
 use Maatwebsite\Excel\Facades\Excel;
+use Yajra\Datatables\Datatables;
 
 class UserController extends Controller
 {
@@ -17,9 +18,16 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('user-management.users.index', [
-            'users' => User::all()
-        ]);
+        // return view('user-management.users.index', [
+        //     'users' => User::all()
+        // ]);
+        return view('user-management.users.index');
+
+    }
+
+    public function getUsers() {
+        
+        return DataTables::of(User::query())->make(true);
     }
 
     /**

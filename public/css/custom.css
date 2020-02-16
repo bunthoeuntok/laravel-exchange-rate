@@ -27,7 +27,7 @@ label.error {
 }
 
 .page-inner {
-	height: calc(100vh - 61px) !important;
+	min-height: calc(100vh - 61px) !important;
 }
 
 /*Sidebar Menus*/
