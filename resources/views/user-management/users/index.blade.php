@@ -56,7 +56,7 @@
                             	@endforeach
                             </tbody>
                         </table> --}}
-                        <table class="table table-bordered" id="users-table">
+                        <table class="table" id="users-table">
 					        <thead>
 					            <tr>
 					                <th>Id</th>

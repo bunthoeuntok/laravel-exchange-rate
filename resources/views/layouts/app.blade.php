@@ -20,7 +20,7 @@
     <link href="{{ asset('plugins/icomoon/style.css') }}" rel="stylesheet">
     <link href="{{ asset('plugins/switchery/switchery.min.css') }}" rel="stylesheet">
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css">
+    {{-- <link rel="stylesheet" href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css"> --}}
   
     <!-- Theme Styles -->
     <link href="{{ asset('css/concept.min.css') }}" rel="stylesheet">
