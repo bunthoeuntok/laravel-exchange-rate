@@ -15,6 +15,10 @@ class CreateSystemsTable extends Migration
     {
         Schema::create('systems', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('name', 50);
+            $table->string('logo', 100);
+            $table->string('icon', 100);
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }

@@ -18,7 +18,7 @@
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">Users</h5>
-                    <div class="table-responsive" style="min-height: 30vh">
+                    <div style="min-height: 30vh">
                         {{-- <table class="table">
                             <thead>
                                 <tr>

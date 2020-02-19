@@ -4,8 +4,8 @@
     </div>
     <div class="secondary-sidebar-profile">
         <a href="app-profile.html">
-            <img src="{{ asset('images/avatars/avatar2.png') }}">
-            <p>{{ Auth::user()->name }}</p>
+            <img src="{{ asset(System::system()->logo) }}">
+            <p>{{ System::system()->name }}</p>
             <i class="fas fa-angle-right"></i>
         </a>
         <ul class="secondary-sidebar-profile-menu list-unstyled d-flex">

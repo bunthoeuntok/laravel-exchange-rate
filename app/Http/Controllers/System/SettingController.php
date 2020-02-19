@@ -4,6 +4,8 @@ namespace App\Http\Controllers\System;
 
 use App\System\Setting;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use System;
 
 class SettingController extends Controller
 {
@@ -15,6 +17,7 @@ class SettingController extends Controller
     public function index()
     {
         //
+        dd(System::system());
     }
 
     /**

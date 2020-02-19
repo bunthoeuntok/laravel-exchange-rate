@@ -12,6 +12,8 @@ Route::group([
 	function() {
 		Route::get('/', 'DashboardController@index');
 		Route::get('dashboard', 'DashboardController@index');
+
+		Route::resource('setting', 'SettingController');
 	}
 );
 
