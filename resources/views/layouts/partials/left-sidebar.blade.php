@@ -101,10 +101,10 @@
             </li>
             <li>
                 <a href="javascript:void(0)">
-                    <i class="menu-icon icon-star"></i><span>Pages</span><i class="accordion-icon fas fa-angle-left"></i>
+                    <i class="menu-icon icon-users"></i><span>Manage Users</span><i class="accordion-icon fas fa-angle-left"></i>
                 </a>
                 <ul class="sub-menu">
-                    <li><a href="invoice.html">Invoice</a></li>
+                    <li><a href="{{ route('user-management.users.index') }}">Users</a></li>
                     <li><a href="404.html">404 Page</a></li>
                     <li><a href="500.html">500 Page</a></li>
                     <li><a href="coming-soon.html">Coming Soon</a></li>
