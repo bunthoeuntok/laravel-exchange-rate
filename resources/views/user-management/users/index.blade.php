@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-{{-- @section('page-header')
+@section('page-header')
 	<div class="content-header">
 	    <nav aria-label="breadcrumb">
 	        <ol class="breadcrumb breadcrumb-style-1">
@@ -10,7 +10,7 @@
 	    </nav>
 	    <h1 class="page-title">Fixed Sidebar &amp; Header</h1>
 	</div>
-@endsection --}}
+@endsection
 
 @section('content')
 	<div class="row">
@@ -18,7 +18,7 @@
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">Users</h5>
-                    <div style="min-height: 30vh">
+                    <div class="table-responsive" style="min-height: 30vh">
                         {{-- <table class="table">
                             <thead>
                                 <tr>
@@ -59,7 +59,7 @@
                         <table class="table" id="users-table">
 					        <thead>
 					            <tr>
-					                <th>Id</th>
+					                <th width="60">Id</th>
 					                <th>Name</th>
 					                <th>Email</th>
 					                <th>Created At</th>

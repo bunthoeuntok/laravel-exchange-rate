@@ -32,5 +32,34 @@ label.error {
 
 /*Sidebar Menus*/
 .secondary-sidebar-menu {
-    overflow-x: hidden !important;
+	overflow-x: hidden !important;
+}
+
+
+
+/*Pagination Style*/
+.dataTables_info {
+	width: 50%;
+	float: left;
+}
+
+.dataTables_paginate {
+	width: 40%;
+	float: right;
+	text-align: right;
+}
+.paginate_button {
+    border-radius: 31px!important;
+    margin-right: 2px;
+    margin-left: 2px;
+    min-width: 31px;
+    padding: .5rem .75rem;
+    line-height: 1.25;
+    border: 1px solid #dee2e6;
+    cursor: pointer;
+}
+.paginate_button.current {
+	background: #59968A!important;
+    border-color: #59968A!important;
+    color: #fff;
 }
