@@ -55,7 +55,6 @@ label.required::after {
 	height: 40px;
 	width: 40px;
 	position: relative;
-	background: red;
 }
 .form-image img {
 	position: absolute;
