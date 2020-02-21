@@ -56,7 +56,7 @@
                             	@endforeach
                             </tbody>
                         </table> --}}
-                        <table class="table" id="users-table">
+                        {{-- <table class="table" id="users-table">
 					        <thead>
 					            <tr>
 					                <th width="60">Id</th>
@@ -66,6 +66,29 @@
 					                <th>Updated At</th>
 					            </tr>
 					        </thead>
+					    </table> --}}
+
+					    <table class="table">
+					    	<thead>
+					            <tr>
+					                <th width="60">Id</th>
+					                <th>Name</th>
+					                <th>Email</th>
+					                <th>Created At</th>
+					                <th>Updated At</th>
+					            </tr>
+					        </thead>
+					        <tbody>
+					        	@foreach ($users as $index => $user)
+					        		<tr>
+					        			<td>{{ ++$index }}</td>
+					        			<td>{{ $user->name }}</td>
+					        			<td>{{ $user->email }}</td>
+					        			<td>{{ $user->created_at }}</td>
+					        			<td>{{ $user->updated_at }}</td>
+					        		</tr>
+					        	@endforeach
+					        </tbody>
 					    </table>
                     </div>      
                 </div>

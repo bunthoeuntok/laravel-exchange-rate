@@ -4,8 +4,8 @@
     </div>
     <div class="secondary-sidebar-profile">
         <a href="app-profile.html">
-            <img src="{{ asset(System::system()->logo) }}">
-            <p>{{ System::system()->name }}</p>
+            <img src="{{ asset(System::system()->logo ?? 'images/system/logo.png') }}">
+            <p>{{ System::system()->name ?? config('app.name', 'SMS') }}</p>
             <i class="fas fa-angle-right"></i>
         </a>
         <ul class="secondary-sidebar-profile-menu list-unstyled d-flex">
@@ -84,20 +84,15 @@
             </li>
             <li>
                 <a href="javascript:void(0)">
-                    <i class="menu-icon icon-code"></i><span>Forms</span><i class="accordion-icon fas fa-angle-left"></i>
+                    <i class="menu-icon icon-cog"></i><span>Settings</span><i class="accordion-icon fas fa-angle-left"></i>
                 </a>
                 <ul class="sub-menu">
-                    <li><a href="form-elements.html">Form Elements</a></li>
+                    <li><a href="{{ route('system.settings.index') }}">System Setting</a></li>
                     <li><a href="form-upload.html">File Upload</a></li>
                     <li><a href="form-image-crop.html">Image Crop</a></li>
                     <li><a href="form-image-zoom.html">Image Zoom</a></li>
                     <li><a href="form-select2.html">Select2</a></li>
                 </ul>
-            </li>
-            <li>
-                <a href="charts.html">
-                    <i class="menu-icon icon-show_chart"></i><span>Charts</span>
-                </a>
             </li>
             <li>
                 <a href="javascript:void(0)">

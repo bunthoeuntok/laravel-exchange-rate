@@ -18,10 +18,10 @@ class UserController extends Controller
      */
     public function index()
     {
-        // return view('user-management.users.index', [
-        //     'users' => User::all()
-        // ]);
-        return view('user-management.users.index');
+        return view('user-management.users.index', [
+            'users' => User::all()
+        ]);
+        // return view('user-management.users.index');
 
     }
 

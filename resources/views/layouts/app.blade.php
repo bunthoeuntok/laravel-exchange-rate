@@ -10,8 +10,8 @@
     <!-- The above 6 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <link rel="icon" href="{{ asset(System::system()->icon ?? '') }}">
+    <title>{{ System::system()->name ?? config('app.name') }}</title>
 
     <!-- Styles -->
     <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
@@ -19,8 +19,6 @@
     <link href="{{ asset('css/all.css') }}" rel="stylesheet">
     <link href="{{ asset('plugins/icomoon/style.css') }}" rel="stylesheet">
     <link href="{{ asset('plugins/switchery/switchery.min.css') }}" rel="stylesheet">
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
-    {{-- <link rel="stylesheet" href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css"> --}}
   
     <!-- Theme Styles -->
     <link href="{{ asset('css/concept.min.css') }}" rel="stylesheet">
@@ -59,9 +57,9 @@
 
      <!-- Javascripts -->
     <script src="{{ asset('plugins/jquery/jquery-3.1.0.min.js') }}"></script>
-    <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
     <script src="{{ asset('plugins/bootstrap/popper.min.js') }}"></script>
     <script src="{{ asset('plugins/bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.validate.min.js') }}"></script>
     <script src="{{ asset('plugins/jquery-slimscroll/jquery.slimscroll.min.js') }}"></script>
     <script src="{{ asset('plugins/switchery/switchery.min.js') }}"></script>
     <script src="{{ asset('js/concept.min.js') }}"></script>
