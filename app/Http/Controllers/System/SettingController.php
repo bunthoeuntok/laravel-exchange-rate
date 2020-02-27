@@ -5,9 +5,6 @@ namespace App\Http\Controllers\System;
 use App\System\Setting;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use System;
-use File;
-use Image;
 
 class SettingController extends Controller
 {
@@ -18,7 +15,7 @@ class SettingController extends Controller
 	 */
 	public function index()
 	{
-		return view('system.settings.index');
+		// return view('system.settings.index');
 	}
 
 	/**
@@ -72,15 +69,6 @@ class SettingController extends Controller
 	 */
 	public function update(Request $request, System $system)
 	{
-		$path = public_path('upload/images/system/');
-		if(!File::isDirectory($path)) {
-	        File::makeDirectory($path, 0777, true, true);
-	    }
-
-	    $image = Image::make(request()->file('logo'))->resize(120, 120)->save($path.'logo.png');
-	    $image = Image::make(request()->file('icon'))->resize(20, 20)->save($path.'icon.png');
-	    dd($image);
-   	
 	}
 
 	/**

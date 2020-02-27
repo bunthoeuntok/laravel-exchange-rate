@@ -19,24 +19,24 @@
 				<div class="card-body">
 					<h5 class="card-title">System Settings</h5>
 					<hr class="card-header-devider">
-					<form method="post" action="{{ route('system.settings.update', System::system()->id) }}" id="system-setting" enctype="multipart/form-data">
+					<form method="post" action="{{ route('system.systems.update', System::app()->id) }}" id="system-setting" enctype="multipart/form-data">
 						@method('patch')
 						@csrf
 						<div class="form-group">
 							<label for="name" class="required">System Name</label>
-							<input type="text" name="name" class="form-control" id="name" placeholder="sytem name header" value="{{ System::system()->name ?? '' }}" required>
+							<input type="text" name="name" class="form-control" id="name" placeholder="sytem name header" value="{{ System::app()->name ?? '' }}" required>
 						</div>
 						<div class="form-group">
 							<label for="description">Description</label>
-							<textarea class="form-control" name="description" id="description" rows="3">{{ System::system()->description ?? '' }}</textarea>
+							<textarea class="form-control" name="description" id="description" rows="3">{{ System::app()->description ?? '' }}</textarea>
 						</div>
 						<div class="row">
 							<div class="col-md-6">
 								<div class="form-group">
 									<label for="logo">LOGO</label>
 									<div class="form-image logo">
-										<img id="img-logo" src="{{ asset(System::system()->logo ?? 'images/system/logo.png') }}">
-										<input type="file" name="logo" id="logo">
+										<img id="img-logo" src="{{ asset(System::app()->logo ?? 'images/system/logo.png') }}">
+										<input type="file" name="logo" id="logo" accept="image/x-png,image/gif,image/jpeg">
 									</div>
 								</div>
 							</div>
@@ -44,8 +44,8 @@
 								<div class="form-group">
 									<label for="logo">ICON</label>
 									<div class="form-image icon">
-										<img id="img-icon" src="{{ asset(System::system()->icon ?? 'images/system/icon.ico') }}">
-										<input type="file" name="icon" id="icon">
+										<img id="img-icon" src="{{ asset(System::app()->icon ?? 'images/system/icon.ico') }}">
+										<input type="file" name="icon" id="icon" accept="image/x-png,image/gif,image/jpeg">
 									</div>
 								</div>
 							</div>

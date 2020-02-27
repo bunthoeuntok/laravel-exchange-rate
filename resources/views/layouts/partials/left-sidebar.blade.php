@@ -4,8 +4,8 @@
     </div>
     <div class="secondary-sidebar-profile">
         <a href="app-profile.html">
-            <img src="{{ asset(System::system()->logo ?? 'images/system/logo.png') }}">
-            <p>{{ System::system()->name ?? config('app.name', 'SMS') }}</p>
+            <img src="{{ asset(System::app()->logo ?? 'images/system/logo.png') }}">
+            <p>{{ System::app()->name ?? config('app.name', 'SMS') }}</p>
             <i class="fas fa-angle-right"></i>
         </a>
         <ul class="secondary-sidebar-profile-menu list-unstyled d-flex">
@@ -87,7 +87,7 @@
                     <i class="menu-icon icon-cog"></i><span>Settings</span><i class="accordion-icon fas fa-angle-left"></i>
                 </a>
                 <ul class="sub-menu">
-                    <li><a href="{{ route('system.settings.index') }}">System Setting</a></li>
+                    <li><a href="{{ route('system.systems.index') }}">System Setting</a></li>
                     <li><a href="form-upload.html">File Upload</a></li>
                     <li><a href="form-image-crop.html">Image Crop</a></li>
                     <li><a href="form-image-zoom.html">Image Zoom</a></li>

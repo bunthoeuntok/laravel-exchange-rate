@@ -13,6 +13,7 @@ Route::group([
 		Route::get('/', 'DashboardController@index');
 		Route::get('dashboard', 'DashboardController@index');
 		Route::resource('settings', 'SettingController');
+		Route::resource('systems', 'SystemController')->except(['create', 'store', 'show', 'edit', 'destroy']);
 	}
 );
 

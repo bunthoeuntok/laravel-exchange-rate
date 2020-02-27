@@ -10,8 +10,8 @@
     <!-- The above 6 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="icon" href="{{ asset(System::system()->icon ?? '') }}">
-    <title>{{ System::system()->name ?? config('app.name') }}</title>
+    <link rel="icon" href="{{ asset(System::app()->icon ?? '') }}">
+    <title>{{ System::app()->name ?? config('app.name') }}</title>
 
     <!-- Styles -->
     <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">

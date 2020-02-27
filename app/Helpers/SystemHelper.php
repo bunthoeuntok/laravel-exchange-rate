@@ -1,18 +1,15 @@
 <?php
 namespace App\Helpers;
 
-use App\System\Setting;
+use App\System\System;
 
 class SystemHelper
 {
     /**
      * summary
      */
-
-    public static function system()
-    {
-        $setting = new Setting();
-
-        return $setting->system();
+    public static function app() {
+        $system = new System();
+        return $system->app();
     }
 }
