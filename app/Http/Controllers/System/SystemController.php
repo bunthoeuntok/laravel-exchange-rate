@@ -74,11 +74,13 @@ class SystemController extends Controller
     {
         $this->validate(request(), [
             'name' => 'required',
+            'title' => 'required',
             'logo' => 'nullable|sometimes|image|mimes:jpeg,png,jpg,svg|max:1024',
             'icon' => 'nullable|sometimes|image|mimes:jpeg,png,jpg,svg|max:1024',
         ]);
 
         $system->name        = $request->name;
+        $system->title        = $request->title;
         $system->description = $request->description;
 
         if ($request->hasFile('logo')) {

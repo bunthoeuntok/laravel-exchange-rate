@@ -33,7 +33,8 @@
                     <li><a href="app-profile.html">Profile</a></li>
                 </ul>
             </li>
-            <li class="active-page">
+
+            <li>
                 <a href="javascript:void(0)">
                     <i class="menu-icon icon-layers"></i><span>Layouts</span><i class="accordion-icon fas fa-angle-left"></i>
                 </a>
@@ -42,7 +43,7 @@
                     <li><a href="layout-collapsed-sidebar.html">Collapsed Sidebar</a></li>
                     <li><a href="layout-fixed-header.html">Fixed Header</a></li>
                     <li><a href="layout-fixed-sidebar.html">Fixed Sidebar</a></li>
-                    <li><a href="layout-fixed-sidebar-header.html" class="active">Fixed Sidebar &amp; Header</a></li>
+                    <li><a href="layout-fixed-sidebar-header.html">Fixed Sidebar &amp; Header</a></li>
                 </ul>
             </li>
             <li>
@@ -82,12 +83,12 @@
                     <li><a href="comp-tooltips.html">Tooltips</a></li>
                 </ul>
             </li>
-            <li>
+            <li class="{{ request()->segment(1) == 'system' ? 'active-page' : '' }}">
                 <a href="javascript:void(0)">
                     <i class="menu-icon icon-cog"></i><span>Settings</span><i class="accordion-icon fas fa-angle-left"></i>
                 </a>
                 <ul class="sub-menu">
-                    <li><a href="{{ route('system.systems.index') }}">System Setting</a></li>
+                    <li><a href="{{ route('system.systems.index') }}" class="{{ request()->segment(2) == 'systems' ? 'active' : '' }}">System Setting</a></li>
                     <li><a href="form-upload.html">File Upload</a></li>
                     <li><a href="form-image-crop.html">Image Crop</a></li>
                     <li><a href="form-image-zoom.html">Image Zoom</a></li>

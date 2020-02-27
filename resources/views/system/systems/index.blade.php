@@ -24,7 +24,11 @@
 						@csrf
 						<div class="form-group">
 							<label for="name" class="required">System Name</label>
-							<input type="text" name="name" class="form-control" id="name" placeholder="sytem name header" value="{{ System::app()->name ?? '' }}" required>
+							<input type="text" name="name" class="form-control" id="name" placeholder="System Name" value="{{ System::app()->name ?? '' }}" required>
+						</div>
+						<div class="form-group">
+							<label for="name" class="required">Title</label>
+							<input type="text" name="title" class="form-control" id="title" placeholder="Title" value="{{ System::app()->title ?? '' }}" required>
 						</div>
 						<div class="form-group">
 							<label for="description">Description</label>
