@@ -72,7 +72,11 @@
 @push('scripts')
 <script type="text/javascript">
 	$(document).ready(function() {
-		$('#system-setting').validate();
+		$('#system-setting').validate({
+			rules: {
+				name: {required: true}
+			}
+		});
 
 		$('#logo').on('change', function() {
 			var oFReader = new FileReader();
