@@ -1,6 +1,6 @@
  <!DOCTYPE html>
 <html lang="en">
-    
+
 <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,7 +9,7 @@
         <meta name="keywords" content="admin,dashboard">
         <meta name="author" content="stacks">
         <!-- Title -->
-        <title>LOGIN-SMS</title>
+        <title>Exchange Rate</title>
 
         <!-- Styles -->
         <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
@@ -20,7 +20,7 @@
         <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
     </head>
     <body>
-        
+
         <!-- Page Container -->
         <div class="page-container">
             <div class="login">
@@ -28,7 +28,7 @@
                 <div class="login-content">
                     <div class="login-box">
                         <div class="login-header">
-                            <h3>School Systems</h3>
+                            <h3>Exchange Rate System</h3>
                             <p>Please login to continue.</p>
                         </div>
                         <div class="login-body">
@@ -58,7 +58,7 @@
                                         <label class="custom-control-label" for="remember">Remember password</label>
                                     </div>
                                 </div>
-                                <button type="submit" class="btn btn-block btn-primary">LOGIN</button>
+                                <button type="submit" class="btn btn-lg btn-block btn-primary">LOGIN</button>
                             </form>
                         </div>
                         <div class="login-footer">
@@ -68,8 +68,8 @@
                 </div>
             </div>
         </div><!-- /Page Container -->
-        
-        
+
+
         <!-- Javascripts -->
         <script src="{{ asset('plugins/jquery/jquery-3.1.0.min.js') }}"></script>
         <script src="{{ asset('js/jquery.validate.min.js') }}"></script>
