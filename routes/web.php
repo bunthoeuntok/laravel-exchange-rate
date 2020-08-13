@@ -1,4 +1,6 @@
 <?php
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 Auth::routes(['register' => false]);
 Route::get('/', 'System\DashboardController@index')->middleware(['auth']);
@@ -25,8 +27,11 @@ Route::group([
 		'namespace'		=> 'User',
 	],
 	function() {
-		Route::get('users/export', 'UserController@export')->name('users.export');
-		Route::get('users/get', 'UserController@getUsers')->name('users.get');
+		Route::resource('roles', 'RoleController');
 		Route::resource('users', 'UserController');
+		Route::resource('pages', 'PageController');
+		Route::get('permissions/edit-permission/{id}', 'PermissionController@editRolePermission')->name('permissions.edit-permission');
+		Route::post('permissions/save-permission/{id}', 'PermissionController@saveRolePermission')->name('permissions.save-permission');
+		Route::resource('permissions', 'PermissionController');
 	}
 );

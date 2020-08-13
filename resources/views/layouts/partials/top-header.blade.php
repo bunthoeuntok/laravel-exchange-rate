@@ -21,9 +21,9 @@
                     <i class="fas fa-angle-down"></i>
                 </button>
             </div>
-        
+
             <!-- Collect the nav links, forms, and other content for toggling -->
-        
+
             <div class="collapse navbar-collapse justify-content-between" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav mr-auto">
                     <li class="collapsed-sidebar-toggle-inv"><a href="javascript:void(0)" id="collapsed-sidebar-toggle-button"><i class="fas fa-bars"></i></a></li>
@@ -68,7 +68,8 @@
                     </ul>
                 </li>
                 <li class="dropdown nav-item d-md-block">
-                    <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="{{ asset('images/avatars/avatar1.png') }}" alt="" class="rounded-circle"></a>
+                    <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+						<img src="{{ asset(\Illuminate\Support\Facades\Auth::user()->profile) }}" alt="" class="rounded-circle"></a>
                     <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                         <li><a href="#">Profile</a></li>
                         <li><a href="#">Calendar</a></li>

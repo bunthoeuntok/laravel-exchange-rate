@@ -20,8 +20,12 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->boolean('blocked')->default(false);
+            $table->unsignedBigInteger('role_id');
+            $table->string('profile', 100)->nullable();
+            $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade')->onUpdate('cascade');
             $table->rememberToken();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
