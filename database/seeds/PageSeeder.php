@@ -37,6 +37,11 @@ class PageSeeder extends Seeder
             'slug'    => 'system',
         ]);
 
+        Page::create([
+            'name'     => 'Currency',
+            'slug'    => 'currency',
+        ]);
+
         \DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }

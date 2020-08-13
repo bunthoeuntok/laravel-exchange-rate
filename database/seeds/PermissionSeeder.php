@@ -95,6 +95,26 @@ class PermissionSeeder extends Seeder
 			'name'	=> 'Access System',
 			'slug'	=> 'system.access'
 		]);
+
+
+
+
+		Permission::create([
+			'page_id'	=> 6,
+			'name'	=> 'Access Currency',
+			'slug'	=> 'currency.access'
+		]);
+		Permission::create([
+			'page_id'	=> 6,
+			'name'	=> 'Update Currency',
+			'slug'	=> 'currency.update'
+		]);
+		Permission::create([
+			'page_id'	=> 6,
+			'name'	=> 'Delete Currency',
+			'slug'	=> 'currency.delete'
+		]);
+
 		\DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }

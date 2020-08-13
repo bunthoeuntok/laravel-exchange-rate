@@ -35,3 +35,15 @@ Route::group([
 		Route::resource('permissions', 'PermissionController');
 	}
 );
+
+// Currency Modules
+Route::group([
+		'prefix'		=> 'currency',
+		'as'			=> 'currency.',
+		'middleware'	=> ['auth'],
+		'namespace'		=> 'Currency',
+	],
+	function() {
+		Route::resource('currencies', 'CurrencyController');
+	}
+);

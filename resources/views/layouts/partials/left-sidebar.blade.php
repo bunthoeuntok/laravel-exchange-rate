@@ -43,13 +43,13 @@
 					@endcan
                 </ul>
             </li>
-            <li class="{{ request()->segment(1) == 'system' ? 'active-page' : '' }}">
+            <li class="{{ request()->segment(1) == 'currency' ? 'active-page' : '' }}">
                 <a href="javascript:void(0)">
                     <i class="menu-icon icon-cog"></i><span>Currency</span><i class="accordion-icon fas fa-angle-left"></i>
                 </a>
                 <ul class="sub-menu">
-					@can('system.access')
-                    	<li><a href="{{ route('system.systems.index') }}" class="{{ request()->segment(2) == 'systems' ? 'active' : '' }}">System Setting</a></li>
+					@can('currency.access')
+                    	<li><a href="{{ route('currency.currencies.index') }}" class="{{ request()->segment(2) == 'currencies' ? 'active' : '' }}">Currency</a></li>
 					@endcan
                 </ul>
             </li>
