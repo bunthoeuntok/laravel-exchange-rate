@@ -115,6 +115,46 @@ class PermissionSeeder extends Seeder
 			'slug'	=> 'currency.delete'
 		]);
 
+
+
+		Permission::create([
+			'page_id'	=> 7,
+			'name'	=> 'Access Rate',
+			'slug'	=> 'rate.access'
+		]);
+		Permission::create([
+			'page_id'	=> 7,
+			'name'	=> 'Update Rate',
+			'slug'	=> 'rate.update'
+		]);
+		Permission::create([
+			'page_id'	=> 7,
+			'name'	=> 'Delete Rate',
+			'slug'	=> 'rate.delete'
+		]);
+
+
+		Permission::create([
+			'page_id'	=> 8,
+			'name'	=> 'Access Transfer',
+			'slug'	=> 'transfer.access'
+		]);
+		Permission::create([
+			'page_id'	=> 8,
+			'name'	=> 'Create Transfer',
+			'slug'	=> 'transfer.create'
+		]);
+		Permission::create([
+			'page_id'	=> 8,
+			'name'	=> 'Update Transfer',
+			'slug'	=> 'transfer.update'
+		]);
+		Permission::create([
+			'page_id'	=> 8,
+			'name'	=> 'Delete Transfer',
+			'slug'	=> 'transfer.delete'
+		]);
+
 		\DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }

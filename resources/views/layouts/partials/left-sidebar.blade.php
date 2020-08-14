@@ -51,6 +51,12 @@
 					@can('currency.access')
                     	<li><a href="{{ route('currency.currencies.index') }}" class="{{ request()->segment(2) == 'currencies' ? 'active' : '' }}">Currency</a></li>
 					@endcan
+					@can('rate.access')
+                    	<li><a href="{{ route('currency.rates.index') }}" class="{{ request()->segment(2) == 'rates' ? 'active' : '' }}">Rate Setup</a></li>
+					@endcan
+					@can('transfer.access')
+                    	<li><a href="{{ route('currency.transfers.index') }}" class="{{ request()->segment(2) == 'transfers' ? 'active' : '' }}">Transfer Money</a></li>
+					@endcan
                 </ul>
             </li>
             <li class="{{ request()->segment(1) == 'user-management' ? 'active-page' : '' }}">

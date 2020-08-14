@@ -42,6 +42,16 @@ class PageSeeder extends Seeder
             'slug'    => 'currency',
         ]);
 
+        Page::create([
+            'name'     => 'Rate Setup',
+            'slug'    => 'rate',
+        ]);
+
+        Page::create([
+            'name'     => 'Transfer Money',
+            'slug'    => 'transfer',
+        ]);
+
         \DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }

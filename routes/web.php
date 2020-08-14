@@ -45,5 +45,22 @@ Route::group([
 	],
 	function() {
 		Route::resource('currencies', 'CurrencyController');
+		Route::resource('rates', 'RateController');
+		Route::get('transfers/{transfer}/receive', 'TransferController@receive')->name('transfers.receive');
+		Route::resource('transfers', 'TransferController');
+	}
+
+
+);// Currency Modules
+Route::group([
+		'prefix'		=> 'sale',
+		'as'			=> 'sale.',
+		'middleware'	=> ['auth'],
+		'namespace'		=> 'Sale',
+	],
+	function() {
+		Route::get('sales/get-to-currencies', 'SaleController@getToCurrencies')->name('sales.get-to-currencies');
+		Route::get('sales/get-exchange-rate', 'SaleController@getExchangeRate')->name('sales.get-exchange-rate');
+		Route::resource('sales', 'SaleController');
 	}
 );

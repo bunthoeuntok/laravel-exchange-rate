@@ -32,44 +32,44 @@
                 </ul>
             </div><!-- /.navbar-collapse -->
             <ul class="nav navbar-nav">
-                <li class="nav-item d-md-block"><a href="javascript:void(0)" class="right-sidebar-toggle" data-sidebar-id="main-right-sidebar"><i class="fas fa-envelope"></i></a></li>
+{{--                <li class="nav-item d-md-block"><a href="javascript:void(0)" class="right-sidebar-toggle" data-sidebar-id="main-right-sidebar"><i class="fas fa-envelope"></i></a></li>--}}
                 <li class="dropdown nav-item d-md-block">
-                    <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fas fa-bell"></i></a>
-                    <ul class="dropdown-menu dropdown-menu-right dropdown-lg dropdown-content">
-                        <li class="drop-title">Notifications<a href="#" class="drop-title-link"><i class="fas fa-angle-right"></i></a></li>
-                        <li class="slimscroll dropdown-notifications">
-                            <ul class="list-unstyled dropdown-oc">
-                                <li>
-                                    <a href="#"><span class="notification-badge bg-info"><i class="fas fa-at"></i></span>
-                                        <span class="notification-info">
-                                            <span class="notification-info"><b>John Doe</b> mentioned you in a post "Update v1.5"</span>
-                                            <small class="notification-date">06:07</small>
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#"><span class="notification-badge bg-danger"><i class="fas fa-bolt"></i></span>
-                                        <span class="notification-info">
-                                            <span class="notification-info">4 new special offers from the apps you follow!</span>
-                                            <small class="notification-date">Yesterday</small>
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#"><span class="notification-badge bg-success"><i class="fas fa-bullhorn"></i></span>
-                                        <span class="notification-info">
-                                            <span class="notification-info">There is a meeting with <b>Ethan</b> in 15 minutes!</span>
-                                            <small class="notification-date">Yesterday</small>
-                                        </span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
+                    <a href="{{ route('sale.sales.create') }}" ><i class="fas fa-exchange-alt"></i></a>
+{{--                    <ul class="dropdown-menu dropdown-menu-right dropdown-lg dropdown-content">--}}
+{{--                        <li class="drop-title">Notifications<a href="#" class="drop-title-link"><i class="fas fa-angle-right"></i></a></li>--}}
+{{--                        <li class="slimscroll dropdown-notifications">--}}
+{{--                            <ul class="list-unstyled dropdown-oc">--}}
+{{--                                <li>--}}
+{{--                                    <a href="#"><span class="notification-badge bg-info"><i class="fas fa-at"></i></span>--}}
+{{--                                        <span class="notification-info">--}}
+{{--                                            <span class="notification-info"><b>John Doe</b> mentioned you in a post "Update v1.5"</span>--}}
+{{--                                            <small class="notification-date">06:07</small>--}}
+{{--                                        </span>--}}
+{{--                                    </a>--}}
+{{--                                </li>--}}
+{{--                                <li>--}}
+{{--                                    <a href="#"><span class="notification-badge bg-danger"><i class="fas fa-bolt"></i></span>--}}
+{{--                                        <span class="notification-info">--}}
+{{--                                            <span class="notification-info">4 new special offers from the apps you follow!</span>--}}
+{{--                                            <small class="notification-date">Yesterday</small>--}}
+{{--                                        </span>--}}
+{{--                                    </a>--}}
+{{--                                </li>--}}
+{{--                                <li>--}}
+{{--                                    <a href="#"><span class="notification-badge bg-success"><i class="fas fa-bullhorn"></i></span>--}}
+{{--                                        <span class="notification-info">--}}
+{{--                                            <span class="notification-info">There is a meeting with <b>Ethan</b> in 15 minutes!</span>--}}
+{{--                                            <small class="notification-date">Yesterday</small>--}}
+{{--                                        </span>--}}
+{{--                                    </a>--}}
+{{--                                </li>--}}
+{{--                            </ul>--}}
+{{--                        </li>--}}
+{{--                    </ul>--}}
+{{--                </li>--}}
                 <li class="dropdown nav-item d-md-block">
                     <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-						<img src="{{ asset(\Illuminate\Support\Facades\Auth::user()->profile) }}" alt="" class="rounded-circle"></a>
+						<img src="{{ asset(\Illuminate\Support\Facades\Auth::user()->profile) }}" style="width: 35px; height: 35px;" alt="" class="rounded-circle">{{ \Illuminate\Support\Facades\Auth::user()->name }}</a>
                     <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                         <li><a href="#">Profile</a></li>
                         <li><a href="#">Calendar</a></li>

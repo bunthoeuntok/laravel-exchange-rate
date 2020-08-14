@@ -1,20 +1,35 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Currency;
 
+use App\Currency\Currency;
 use App\Currency\Transfer;
+use App\Repository\TransferRepository;
+use App\User\User;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class TransferController extends Controller
 {
-    /**
+	protected $transferRepository;
+
+	public function __construct(TransferRepository $transferRepository)
+	{
+		$this->transferRepository = $transferRepository;
+	}
+
+	/**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        //
+    	$transfers = $this->transferRepository->allTransfers();
+    	return view('currencies.transfers.index', [
+    		'transfers'	=> $transfers
+		]);
     }
 
     /**
@@ -24,7 +39,12 @@ class TransferController extends Controller
      */
     public function create()
     {
-        //
+        $currencies = Currency::all();
+    	$users = User::where('id', '!=', Auth::user()->id)->get();
+    	return view('currencies.transfers.create', [
+    		'currencies' => $currencies,
+			'users'	=> $users
+		]);
     }
 
     /**
@@ -35,7 +55,8 @@ class TransferController extends Controller
      */
     public function store(Request $request)
     {
-        //
+    	$this->transferRepository->save($request);
+    	return redirect()->route('currency.transfers.index');
     }
 
     /**
@@ -55,9 +76,14 @@ class TransferController extends Controller
      * @param  \App\Currency\Transfer  $transfer
      * @return \Illuminate\Http\Response
      */
-    public function edit(Transfer $transfer)
+    public function edit($id)
     {
-        //
+    	$transfer = $this->transferRepository->getTransfer($id);
+    	$users = User::where('id', '!=', Auth::user()->id)->get();
+        return view('currencies.transfers.edit', [
+        	'transfer' => $transfer,
+			'users' => $users
+		]);
     }
 
     /**
@@ -69,7 +95,8 @@ class TransferController extends Controller
      */
     public function update(Request $request, Transfer $transfer)
     {
-        //
+		$this->transferRepository->update($request, $transfer);
+		return redirect()->route('currency.transfers.index');
     }
 
     /**
@@ -80,6 +107,13 @@ class TransferController extends Controller
      */
     public function destroy(Transfer $transfer)
     {
-        //
+        $transfer->delete();
+        return redirect()->route('currency.transfers.index');
     }
+
+    public function receive(Transfer $transfer) {
+    	$this->transferRepository->receive($transfer);
+
+    	return redirect()->route('currency.transfers.index');
+	}
 }
