@@ -60,7 +60,7 @@
 													@can('sale.delete')
 														<div class="dropdown-divider"></div>
 														<a class="dropdown-item" href="#">
-															<form class="delete-record" action="{{ route('reports', $sale->id) }}" method="post">
+															<form class="delete-record" action="{{ route('sale.sales.destroy', $sale->id) }}" method="post">
 																@method('delete')
 																@csrf
 																<button style="border: 0; outline: 0; background-color: transparent; padding-left: -7px;">Delete</button>
