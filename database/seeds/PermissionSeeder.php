@@ -64,11 +64,6 @@ class PermissionSeeder extends Seeder
 			'name'	=> 'Update Page',
 			'slug'	=> 'page.update'
 		]);
-		Permission::create([
-			'page_id'	=> 3,
-			'name'	=> 'Delete Page',
-			'slug'	=> 'page.delete'
-		]);
 
 
 		Permission::create([
@@ -80,11 +75,6 @@ class PermissionSeeder extends Seeder
 			'page_id'	=> 4,
 			'name'	=> 'Update Permission',
 			'slug'	=> 'permission.update'
-		]);
-		Permission::create([
-			'page_id'	=> 4,
-			'name'	=> 'Delete Permission',
-			'slug'	=> 'permission.delete'
 		]);
 
 
@@ -127,11 +117,6 @@ class PermissionSeeder extends Seeder
 			'name'	=> 'Update Rate',
 			'slug'	=> 'rate.update'
 		]);
-		Permission::create([
-			'page_id'	=> 7,
-			'name'	=> 'Delete Rate',
-			'slug'	=> 'rate.delete'
-		]);
 
 
 		Permission::create([
@@ -153,6 +138,35 @@ class PermissionSeeder extends Seeder
 			'page_id'	=> 8,
 			'name'	=> 'Delete Transfer',
 			'slug'	=> 'transfer.delete'
+		]);
+
+		Permission::create([
+			'page_id'	=> 9,
+			'name'	=> 'Access Sale',
+			'slug'	=> 'sale.access'
+		]);
+		Permission::create([
+			'page_id'	=> 9,
+			'name'	=> 'Create Sale',
+			'slug'	=> 'sale.create'
+		]);
+		Permission::create([
+			'page_id'	=> 9,
+			'name'	=> 'Delete Sale',
+			'slug'	=> 'sale.delete'
+		]);
+
+
+		Permission::create([
+			'page_id'	=> 10,
+			'name'	=> 'Access Sale Report',
+			'slug'	=> 'salereport.access'
+		]);
+
+		Permission::create([
+			'page_id'	=> 11,
+			'name'	=> 'Rate Report',
+			'slug'	=> 'ratereport.access'
 		]);
 
 		\DB::statement('SET FOREIGN_KEY_CHECKS = 1');

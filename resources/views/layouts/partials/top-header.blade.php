@@ -15,7 +15,7 @@
             <div class="navbar-header">
                 <div class="logo-sm">
                     <a href="javascript:void(0)" id="sidebar-toggle-button"><i class="fas fa-bars"></i></a>
-                    <a class="logo-box" href="index.html"><span>concept</span></a>
+                    <a class="logo-box" href="{{ route('home') }}"><span>concept</span></a>
                 </div>
                 <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                     <i class="fas fa-angle-down"></i>
@@ -34,7 +34,9 @@
             <ul class="nav navbar-nav">
 {{--                <li class="nav-item d-md-block"><a href="javascript:void(0)" class="right-sidebar-toggle" data-sidebar-id="main-right-sidebar"><i class="fas fa-envelope"></i></a></li>--}}
                 <li class="dropdown nav-item d-md-block">
-                    <a href="{{ route('sale.sales.create') }}" ><i class="fas fa-exchange-alt"></i></a>
+					@can('sale.create')
+                    	<a href="{{ route('sale.sales.create') }}" ><i class="fas fa-exchange-alt"></i></a>
+					@endcan
 {{--                    <ul class="dropdown-menu dropdown-menu-right dropdown-lg dropdown-content">--}}
 {{--                        <li class="drop-title">Notifications<a href="#" class="drop-title-link"><i class="fas fa-angle-right"></i></a></li>--}}
 {{--                        <li class="slimscroll dropdown-notifications">--}}
@@ -71,11 +73,11 @@
                     <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 						<img src="{{ asset(\Illuminate\Support\Facades\Auth::user()->profile) }}" style="width: 35px; height: 35px;" alt="" class="rounded-circle">{{ \Illuminate\Support\Facades\Auth::user()->name }}</a>
                     <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <li><a href="#">Profile</a></li>
-                        <li><a href="#">Calendar</a></li>
-                        <li><a href="#"><span class="badge float-right badge-info">64</span>Messages</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">Account Settings</a></li>
+{{--                        <li><a href="#">Profile</a></li>--}}
+{{--                        <li><a href="#">Calendar</a></li>--}}
+{{--                        <li><a href="#"><span class="badge float-right badge-info">64</span>Messages</a></li>--}}
+{{--                        <li role="separator" class="divider"></li>--}}
+{{--                        <li><a href="#">Account Settings</a></li>--}}
                         <li><a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a></li>
                     </ul>
 

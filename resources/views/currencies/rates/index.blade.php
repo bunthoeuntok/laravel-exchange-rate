@@ -2,13 +2,13 @@
 
 @section('page-header')
 	<div class="content-header">
-	    <nav aria-label="breadcrumb">
-	        <ol class="breadcrumb breadcrumb-style-1">
-	            <li class="breadcrumb-item"><a href="#">Layouts</a></li>
-	            <li class="breadcrumb-item active" aria-current="page">Fixed Sidebar &amp; Header</li>
-	        </ol>
-	    </nav>
-	    <h1 class="page-title">Fixed Sidebar &amp; Header</h1>
+{{--	    <nav aria-label="breadcrumb">--}}
+{{--	        <ol class="breadcrumb breadcrumb-style-1">--}}
+{{--	            <li class="breadcrumb-item"><a href="#">Layouts</a></li>--}}
+{{--	            <li class="breadcrumb-item active" aria-current="page">Fixed Sidebar &amp; Header</li>--}}
+{{--	        </ol>--}}
+{{--	    </nav>--}}
+	    <h1 class="page-title">Setup Exchange Rate</h1>
 	</div>
 @endsection
 
@@ -17,7 +17,7 @@
 		<div class="col-xl">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Role</h5>
+                    <h5 class="card-title">Setup Exchange Rate</h5>
                     <div class="table-responsive" style="min-height: 30vh">
                          <table class="table">
                             <thead>
@@ -58,15 +58,19 @@
 	                                                <i class="fa fa-align-justify" aria-hidden="true"></i>
 	                                            </button>
 	                                            <div class="dropdown-menu pull-right">
+													@can('rate.update')
 	                                                <a class="dropdown-item" href="{{ route('currency.rates.edit', $rate->id) }}">Update</a>
-	                                                <div class="dropdown-divider"></div>
-	                                                <a class="dropdown-item" href="#">
-														<form class="delete-record" action="{{ route('currency.rates.destroy', $rate->id) }}" method="post">
-															@method('delete')
-															@csrf
-															<button style="border: 0; outline: 0; background-color: transparent; padding-left: -7px;">Delete</button>
-														</form>
-													</a>
+													@endcan
+{{--													@can('currency.delete')--}}
+{{--	                                                <div class="dropdown-divider"></div>--}}
+{{--	                                                <a class="dropdown-item" href="#">--}}
+{{--														<form class="delete-record" action="{{ route('currency.rates.destroy', $rate->id) }}" method="post">--}}
+{{--															@method('delete')--}}
+{{--															@csrf--}}
+{{--															<button style="border: 0; outline: 0; background-color: transparent; padding-left: -7px;">Delete</button>--}}
+{{--														</form>--}}
+{{--													</a>--}}
+{{--														@endcan--}}
 	                                            </div>
 	                                        </div>
 	                                    </td>

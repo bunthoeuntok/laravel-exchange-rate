@@ -15,6 +15,12 @@ class CreateSalesTable extends Migration
     {
         Schema::create('sales', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('from_currency_id');
+            $table->unsignedBigInteger('to_currency_id');
+            $table->float('amount', 11, 4);
+            $table->float('rate', 11, 5);
+            $table->float('total_exchange_amount', 11, 4);
             $table->timestamps();
         });
     }

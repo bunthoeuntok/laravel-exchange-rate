@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Sale;
 
 use App\Currency\Currency;
 use App\Repository\RateRepository;
+use App\Repository\SaleRepository;
 use App\Sale\Sale;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -16,10 +17,15 @@ class SaleController extends Controller
 	 * @var RateRepository
 	 */
 	protected $rateRepository;
+	/**
+	 * @var SaleRepository
+	 */
+	protected $saleRepository;
 
-	public function __construct(RateRepository $rateRepository)
+	public function __construct(RateRepository $rateRepository, SaleRepository $saleRepository)
 	{
 		$this->rateRepository = $rateRepository;
+		$this->saleRepository = $saleRepository;
 	}
 
 	/**
@@ -29,7 +35,10 @@ class SaleController extends Controller
      */
     public function index()
     {
-        //
+        $sales = $this->saleRepository->allSales();
+        return view('sales.sales.index', [
+        	'sales' => $sales
+		]);
     }
 
 
@@ -54,7 +63,8 @@ class SaleController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
+        $this->saleRepository->save($request);
+        return redirect()->back();
     }
 
     function getToCurrencies(Request $request) {
@@ -81,9 +91,14 @@ class SaleController extends Controller
 		);
 	}
 
-	function getTotalMoney($currentId)
+	function getTotalMoney(Request $request)
 	{
-		$curencyAount = $this->rateRepository->
+		$currentId = $request->currency_id;
+		$currencyAmount = $this->saleRepository->getTotalMoney($currentId);
+
+		echo json_encode(array(
+			'currency_amount' => $currencyAmount
+		));
 	}
 
 

@@ -2,13 +2,14 @@
 
 @section('page-header')
 	<div class="content-header">
-	    <nav aria-label="breadcrumb">
-{{--	        <ol class="breadcrumb breadcrumb-style-1">--}}
-{{--	            <li class="breadcrumb-item"><a href="#">Layouts</a></li>--}}
-{{--	            <li class="breadcrumb-item active" aria-current="page">Fixed Sidebar &amp; Header</li>--}}
-{{--	        </ol>--}}
-	    </nav>
-	    <h1 class="page-title">Currencies</h1>
+	    <div style="display: flex; justify-content: space-between">
+			<h4>Sales List</h4>
+			<div>
+				@can('sale.create')
+					<a href="{{ route('sale.sales.create') }}" class="btn btn-sm btn-primary">Add</a>
+				@endcan
+			</div>
+		</div>
 	</div>
 @endsection
 
@@ -17,42 +18,49 @@
 		<div class="col-xl">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Currencies</h5>
+                    <h5 class="card-title">Sales</h5>
                     <div class="table-responsive" style="min-height: 30vh">
                          <table class="table">
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">Currency Name</th>
-                                    <th scope="col">Currency Name(KH)</th>
-                                    <th scope="col">Symbol</th>
-                                    <th scope="col">Created At</th>
-                                    <th scope="col">Updated At</th>
+                                    <th scope="col">From Currency</th>
+                                    <th scope="col">To Currency</th>
+                                    <th scope="col">Amount</th>
+                                    <th scope="col">Rate</th>
+                                    <th scope="col">Exchange Amount</th>
+                                    <th scope="col">Changed By</th>
+                                    <th scope="col">Changed At</th>
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                            	@foreach ($currencies as $index => $currency)
+                            	@foreach ($sales as $index => $sale)
 	                                <tr>
 	                                    <th scope="row">{{ ++$index }}</th>
-	                                    <td>{{ $currency->name }}</td>
-	                                    <td>{{ $currency->name_kh }}</td>
-	                                    <td>{{ $currency->symbol }}</td>
-	                                    <td>{{ $currency->created_at }}</td>
-	                                    <td>{{ $currency->updated_at }}</td>
+	                                    <td>{{ $sale->from_currency_name }}</td>
+	                                    <td>{{ $sale->to_currency_name }}</td>
 	                                    <td>
+											<span>{{ number_format($sale->amount, 2). ' ' .$sale->from_currency_symbol }}</span>
+										</td>
+	                                    <td>
+											<span>{{ number_format($sale->rate, 2). ' ' .$sale->to_currency_symbol }}</span>
+										</td>
+	                                    <td>
+											<span>{{ number_format($sale->total_exchange_amount, 2) .' ' .$sale->to_currency_symbol }}</span>
+										</td>
+	                                    <td>{{ $sale->user_name }}</td>
+	                                    <td>{{ $sale->created_at }}</td>
+										<td>
 	                                    	<div class="btn-group">
 	                                            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 	                                                <i class="fa fa-align-justify" aria-hidden="true"></i>
 	                                            </button>
 	                                            <div class="dropdown-menu pull-right">
-													@can('currency.update')
-	                                              	  <a class="dropdown-item" href="{{ route('currency.currencies.edit', $currency->id) }}">Update</a>
-													@endcan
-													@can('currency.delete')
+													@can('sale.delete')
 														<div class="dropdown-divider"></div>
 														<a class="dropdown-item" href="#">
-															<form class="delete-record" action="{{ route('currency.currencies.destroy', $currency->id) }}" method="post">
+															<form class="delete-record" action="{{ route('reports', $sale->id) }}" method="post">
 																@method('delete')
 																@csrf
 																<button style="border: 0; outline: 0; background-color: transparent; padding-left: -7px;">Delete</button>
@@ -61,8 +69,8 @@
 													@endcan
 	                                            </div>
 	                                        </div>
-	                                    </td>
-	                                </tr>
+										</td>
+									</tr>
                             	@endforeach
                             </tbody>
                         </table>

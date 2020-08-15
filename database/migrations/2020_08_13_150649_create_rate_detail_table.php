@@ -17,7 +17,7 @@ class CreateRateDetailTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('rate_id');
             $table->unsignedBigInteger('to_currency_id');
-            $table->float('exchange_rate', 11, 4);
+            $table->float('exchange_rate', 11, 5);
         });
     }
 

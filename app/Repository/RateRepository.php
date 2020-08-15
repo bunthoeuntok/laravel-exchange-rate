@@ -5,6 +5,7 @@ namespace App\Repository;
 
 
 use App\Currency\Rate;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
@@ -88,5 +89,16 @@ class RateRepository
 				'updated_at'		=> date('Y-m-d h:i:s')
 			]);
 
+	}
+
+
+	function getTotalMoney($currencyId)
+	{
+		return DB::table('user_amount')
+			->where('currency_id', $currencyId)
+			->whereDate('created_at', date('Y-m-d'))
+			->where('user_id', Auth::user()->id)
+			->select(DB::raw('SUM(amount) AS total_amount'))
+			->first();
 	}
 }

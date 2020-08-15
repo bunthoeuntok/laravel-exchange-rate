@@ -137,12 +137,13 @@
 						},
 						success: function (data) {
 						    if (data.rate == null) {
-						        alert('No rate setup for this one')
+						        alert('No rate setup for this one');
+						        $('#rate').val(0.00);
 							} else {
 						        var rate = data.rate.exchange_rate;
 						        var amount = $('#amount').val();
 						        var exchange_amount = rate * amount;
-								$('#rate').val(rate);
+								$('#rate').val(rate.toFixed(2));
 								$('#total_exchange_amount').text(exchange_amount.toFixed(2));
 								$('#exchange_symbol').text(data.rate.to_currency_symbol);
 								$('#btn-summit').prop('disabled', false);
@@ -154,26 +155,27 @@
 				$('#amount').keyup(function () {
 					var rate = $('#rate').val();
 					var amount = $(this).val();
+					var currency_id = $('#to_currency').val();
 
 					var total_exchange_amount = rate * amount;
 					$('#total_exchange_amount').text(total_exchange_amount.toFixed(2));
-					{{--$.ajax({--}}
-					{{--	url: '{{route('sale.sales.get-exchange-rate')}}',--}}
-					{{--	type: 'get',--}}
-					{{--	dataType: 'json',--}}
-					{{--	data: {--}}
-					{{--	    from_id: from_id,--}}
-					{{--	    to_id: to_id,--}}
-					{{--		_token: '{{ csrf_token() }}'--}}
-					{{--	},--}}
-					{{--	success: function (data) {--}}
-					{{--	    if (data.rate == null) {--}}
-					{{--	        alert('No rate setup for this one')--}}
-					{{--		} else {--}}
-					{{--			$('#rate').val(data.rate.exchange_rate);--}}
-					{{--		}--}}
-                    {{--    }--}}
-					{{--})--}}
+					$.ajax({
+						url: '{{route('sale.sales.get-currency-amount')}}',
+						type: 'get',
+						dataType: 'json',
+						data: {
+						    currency_id: currency_id,
+							_token: '{{ csrf_token() }}'
+						},
+						success: function (data) {
+						    console.log(data)
+						   if (total_exchange_amount > data.currency_amount.total_amount) {
+						       $('#btn-summit').prop('disabled', true);
+						   } else {
+						       $('#btn-summit').prop('disabled', false);
+						   }
+                        }
+					})
                 });
             });
 

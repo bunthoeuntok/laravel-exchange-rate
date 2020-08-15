@@ -2,13 +2,14 @@
 
 @section('page-header')
 	<div class="content-header">
-	    <nav aria-label="breadcrumb">
-	        <ol class="breadcrumb breadcrumb-style-1">
-	            <li class="breadcrumb-item"><a href="#">Layouts</a></li>
-	            <li class="breadcrumb-item active" aria-current="page">Fixed Sidebar &amp; Header</li>
-	        </ol>
-	    </nav>
-	    <h1 class="page-title">Fixed Sidebar &amp; Header</h1>
+	    <div style="display: flex; justify-content: space-between">
+			<h4>Dashboard</h4>
+			<div>
+				@can('transfer.create')
+				<a href="{{ route('currency.transfers.create') }}" class="btn btn-sm btn-primary">Add</a>
+				@endcan
+			</div>
+		</div>
 	</div>
 @endsection
 
@@ -55,16 +56,24 @@
 	                                            </button>
 	                                            <div class="dropdown-menu pull-right">
 													@if(!$transfer->is_received)
-	                                                	<a class="dropdown-item" href="{{ route('currency.transfers.receive', $transfer->id) }}">Receive</a>
-	                                                	<a class="dropdown-item" href="{{ route('currency.transfers.edit', $transfer->id) }}">Update</a>
-	                                                	<div class="dropdown-divider"></div>
-														<a class="dropdown-item" href="#">
-															<form class="delete-record" action="{{ route('currency.transfers.destroy', $transfer->id) }}" method="post">
-																@method('delete')
-																@csrf
-																<button style="border: 0; outline: 0; background-color: transparent; padding-left: -7px;">Delete</button>
-															</form>
-														</a>
+														@if($transfer->from_user_id == \Illuminate\Support\Facades\Auth::user()->id)
+															@can('transfer.update')
+	                                                		<a class="dropdown-item" href="{{ route('currency.transfers.edit', $transfer->id) }}">Update</a>
+															@endcan
+														@endif
+														@if($transfer->to_user_id == \Illuminate\Support\Facades\Auth::user()->id)
+	                                                		<a class="dropdown-item" href="{{ route('currency.transfers.receive', $transfer->id) }}">Receive</a>
+														@endif
+														@can('transfer.delete')
+															<div class="dropdown-divider"></div>
+															<a class="dropdown-item" href="#">
+																<form class="delete-record" action="{{ route('currency.transfers.destroy', $transfer->id) }}" method="post">
+																	@method('delete')
+																	@csrf
+																	<button style="border: 0; outline: 0; background-color: transparent; padding-left: -7px;">Delete</button>
+																</form>
+															</a>
+															@endcan
 													@endif
 	                                            </div>
 	                                        </div>

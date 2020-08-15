@@ -52,6 +52,21 @@ class PageSeeder extends Seeder
             'slug'    => 'transfer',
         ]);
 
+        Page::create([
+            'name'     => 'Sale',
+            'slug'    => 'sale',
+        ]);
+
+        Page::create([
+            'name'     => 'Sale Report',
+            'slug'    => 'salereport',
+        ]);
+
+        Page::create([
+            'name'     => 'Rate Report',
+            'slug'    => 'ratereport',
+        ]);
+
         \DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }

@@ -3,12 +3,12 @@
 @section('page-header')
 	<div class="content-header">
 	    <nav aria-label="breadcrumb">
-	        <ol class="breadcrumb breadcrumb-style-1">
-	            <li class="breadcrumb-item"><a href="#">Layouts</a></li>
-	            <li class="breadcrumb-item active" aria-current="page">Fixed Sidebar &amp; Header</li>
-	        </ol>
+{{--	        <ol class="breadcrumb breadcrumb-style-1">--}}
+{{--	            <li class="breadcrumb-item"><a href="#">Layouts</a></li>--}}
+{{--	            <li class="breadcrumb-item active" aria-current="page">Fixed Sidebar &amp; Header</li>--}}
+{{--	        </ol>--}}
 	    </nav>
-	    <h1 class="page-title">Fixed Sidebar &amp; Header</h1>
+	    <h1 class="page-title">Permission Setup</h1>
 	</div>
 @endsection
 
@@ -36,7 +36,9 @@
 	                                    <td>{{ $role->name }}</td>
 										<td colspan="2"></td>
 										<td>
-											<a href="{{ route('user-management.permissions.edit-permission', $role->id) }}" class="btn btn-warning btn-sm">Edit</a>
+											@can('permission.update')
+												<a href="{{ route('user-management.permissions.edit-permission', $role->id) }}" class="btn btn-warning btn-sm">Edit</a>
+											@endcan
 										</td>
 	                                </tr>
 									@foreach($pages as $page)

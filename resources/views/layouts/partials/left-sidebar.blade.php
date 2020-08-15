@@ -3,7 +3,7 @@
         <a href="#" class="logo-box">concept</a>
     </div>
     <div class="secondary-sidebar-profile">
-        <a href="app-profile.html">
+        <a href="{{ route('home') }}">
             <img src="{{ asset(System::app()->logo ?? 'images/system/logo.png') }}">
             <p>{{ System::app()->name ?? config('app.name', 'SMS') }}</p>
             <i class="fas fa-angle-right"></i>
@@ -18,34 +18,24 @@
     <div class="secondary-sidebar-menu">
         <ul class="accordion-menu">
             <li>
-                <a href="index.html">
+                <a href="{{ route('home') }}">
                     <i class="menu-icon icon-home4"></i><span>Dashboard</span>
                 </a>
             </li>
-            <li>
-                <a href="javascript:void(0)">
-                    <i class="menu-icon icon-apps"></i><span>Apps</span><i class="accordion-icon fas fa-angle-left"></i>
-                </a>
-                <ul class="sub-menu">
-                    <li><a href="app-mailbox.html">Mailbox</a></li>
-                    <li><a href="app-todo.html">Todo</a></li>
-                    <li><a href="app-contacts.html">Contacts</a></li>
-                    <li><a href="app-profile.html">Profile</a></li>
-                </ul>
-            </li>
-            <li class="{{ request()->segment(1) == 'system' ? 'active-page' : '' }}">
-                <a href="javascript:void(0)">
-                    <i class="menu-icon icon-cog"></i><span>Settings</span><i class="accordion-icon fas fa-angle-left"></i>
-                </a>
-                <ul class="sub-menu">
-					@can('system.access')
-                    	<li><a href="{{ route('system.systems.index') }}" class="{{ request()->segment(2) == 'systems' ? 'active' : '' }}">System Setting</a></li>
-					@endcan
-                </ul>
-            </li>
+{{--            <li>--}}
+{{--                <a href="javascript:void(0)">--}}
+{{--                    <i class="menu-icon icon-apps"></i><span>Apps</span><i class="accordion-icon fas fa-angle-left"></i>--}}
+{{--                </a>--}}
+{{--                <ul class="sub-menu">--}}
+{{--                    <li><a href="app-mailbox.html">Mailbox</a></li>--}}
+{{--                    <li><a href="app-todo.html">Todo</a></li>--}}
+{{--                    <li><a href="app-contacts.html">Contacts</a></li>--}}
+{{--                    <li><a href="app-profile.html">Profile</a></li>--}}
+{{--                </ul>--}}
+{{--            </li>--}}
             <li class="{{ request()->segment(1) == 'currency' ? 'active-page' : '' }}">
                 <a href="javascript:void(0)">
-                    <i class="menu-icon icon-cog"></i><span>Currency</span><i class="accordion-icon fas fa-angle-left"></i>
+                    <i class="menu-icon icon-coin-dollar"></i><span>Currency</span><i class="accordion-icon fas fa-angle-left"></i>
                 </a>
                 <ul class="sub-menu">
 					@can('currency.access')
@@ -57,6 +47,17 @@
 					@can('transfer.access')
                     	<li><a href="{{ route('currency.transfers.index') }}" class="{{ request()->segment(2) == 'transfers' ? 'active' : '' }}">Transfer Money</a></li>
 					@endcan
+                </ul>
+            </li>
+            <li class="{{ request()->segment(1) == 'sale' ? 'active-page' : '' }}">
+                <a href="javascript:void(0)">
+                    <i class="menu-icon icon-user-check"></i><span>Sales</span><i class="accordion-icon fas fa-angle-left"></i>
+                </a>
+                <ul class="sub-menu">
+					@can('currency.access')
+                    	<li><a href="{{ route('sale.sales.index') }}" class="{{ request()->segment(2) == 'sales' ? 'active' : '' }}">Sale</a></li>
+					@endcan
+
                 </ul>
             </li>
             <li class="{{ request()->segment(1) == 'user-management' ? 'active-page' : '' }}">
@@ -75,6 +76,29 @@
 					@endcan
 					@can('permission.access')
                     	<li><a href="{{ route('user-management.permissions.index') }}" class="{{ request()->segment(2) == 'permissions' ? 'active' : '' }}">Permissions</a></li>
+					@endcan
+                </ul>
+            </li>
+            <li class="{{ request()->segment(1) == 'system' ? 'active-page' : '' }}">
+                <a href="javascript:void(0)">
+                    <i class="menu-icon icon-cog"></i><span>Settings</span><i class="accordion-icon fas fa-angle-left"></i>
+                </a>
+                <ul class="sub-menu">
+					@can('system.access')
+                    	<li><a href="{{ route('system.systems.index') }}" class="{{ request()->segment(2) == 'systems' ? 'active' : '' }}">System Setting</a></li>
+					@endcan
+                </ul>
+            </li>
+            <li class="{{ request()->segment(1) == 'report' ? 'active-page' : '' }}">
+                <a href="javascript:void(0)">
+                    <i class="menu-icon icon-file-excel"></i><span>Reports</span><i class="accordion-icon fas fa-angle-left"></i>
+                </a>
+                <ul class="sub-menu">
+					@can('salereport.access')
+                    	<li><a href="{{ route('report.reports.index') }}" class="{{ request()->segment(2) == 'reports' ? 'active' : '' }}">Sale Report</a></li>
+					@endcan
+					@can('salereport.access')
+                    	<li><a href="{{ route('report.rate-reports.index') }}" class="{{ request()->segment(2) == 'users' ? 'active' : '' }}">Rate Report</a></li>
 					@endcan
                 </ul>
             </li>

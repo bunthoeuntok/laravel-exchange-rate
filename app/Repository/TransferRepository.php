@@ -77,13 +77,4 @@ class TransferRepository
 	}
 
 
-	function getTotalMoney($currencyId)
-	{
-		DB::table('user_amount')
-			->where('currency_id', $currencyId)
-			->whereDate('created_date', Carbon::today()->get())
-			->select()
-			->get();
-
-	}
 }

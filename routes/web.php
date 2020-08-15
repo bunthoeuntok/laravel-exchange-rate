@@ -3,7 +3,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
 Auth::routes(['register' => false]);
-Route::get('/', 'System\DashboardController@index')->middleware(['auth']);
+Route::get('/', 'System\DashboardController@index')->name('home')->middleware(['auth']);
 
 Route::group([
 		'prefix'		=> 'system',
@@ -61,6 +61,23 @@ Route::group([
 	function() {
 		Route::get('sales/get-to-currencies', 'SaleController@getToCurrencies')->name('sales.get-to-currencies');
 		Route::get('sales/get-exchange-rate', 'SaleController@getExchangeRate')->name('sales.get-exchange-rate');
+		Route::get('sales/get-currency-amount', 'SaleController@getTotalMoney')->name('sales.get-currency-amount');
 		Route::resource('sales', 'SaleController');
+	}
+);
+
+
+// Currency Modules
+Route::group([
+		'prefix'		=> 'report',
+		'as'			=> 'report.',
+		'middleware'	=> ['auth'],
+		'namespace'		=> 'Report',
+	],
+	function() {
+		Route::get('reports/search', 'ReportController@search')->name('reports.search');
+		Route::resource('reports', 'ReportController');
+		Route::get('rate-reports/search', 'RateReportController@search')->name('rate-reports.search');
+		Route::resource('rate-reports', 'RateReportController');
 	}
 );

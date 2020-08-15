@@ -2,13 +2,14 @@
 
 @section('page-header')
 	<div class="content-header">
-	    <nav aria-label="breadcrumb">
-	        <ol class="breadcrumb breadcrumb-style-1">
-	            <li class="breadcrumb-item"><a href="#">Layouts</a></li>
-	            <li class="breadcrumb-item active" aria-current="page">Fixed Sidebar &amp; Header</li>
-	        </ol>
-	    </nav>
-	    <h1 class="page-title">Fixed Sidebar &amp; Header</h1>
+	    <div style="display: flex; justify-content: space-between">
+			<h4>Dashboard</h4>
+			<div>
+				@can('user.create')
+					<a href="{{ route('user-management.users.create') }}" class="btn btn-sm btn-primary">Create User</a>
+				@endcan
+			</div>
+		</div>
 	</div>
 @endsection
 
@@ -50,15 +51,19 @@
 	                                                <i class="fa fa-align-justify" aria-hidden="true"></i>
 	                                            </button>
 	                                            <div class="dropdown-menu pull-right">
-	                                                <a class="dropdown-item" href="{{ route('user-management.users.edit', $user->id) }}">Update</a>
-	                                                <div class="dropdown-divider"></div>
-	                                                <a class="dropdown-item" href="#">
-														<form class="delete-record" action="{{ route('user-management.users.destroy', $user->id) }}" method="post">
-															@method('delete')
-															@csrf
-															<button style="border: 0; outline: 0; background-color: transparent; padding-left: -7px;">Delete</button>
-														</form>
-													</a>
+													@can('user.update')
+	                                                	<a class="dropdown-item" href="{{ route('user-management.users.edit', $user->id) }}">Update</a>
+													@endcan
+													@can('user.delete')
+														<div class="dropdown-divider"></div>
+														<a class="dropdown-item" href="#">
+															<form class="delete-record" action="{{ route('user-management.users.destroy', $user->id) }}" method="post">
+																@method('delete')
+																@csrf
+																<button style="border: 0; outline: 0; background-color: transparent; padding-left: -7px;">Delete</button>
+															</form>
+														</a>
+														@endcan
 	                                            </div>
 	                                        </div>
 	                                    </td>
