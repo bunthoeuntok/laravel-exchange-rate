@@ -76,7 +76,15 @@
                                 </tr>
                             </thead>
                             <tbody>
+								@php
+									$totalAmount = 0;
+									$totalExchange = 0;
+								@endphp
                             	@foreach ($sales as $index => $sale)
+									@php
+										$totalAmount += $sale->amount;
+										$totalExchange += $sale->total_exchange_amount;
+									@endphp
 	                                <tr>
 	                                    <th scope="row">{{ ++$index }}</th>
 	                                    <td>{{ $sale->from_currency_name }}</td>
@@ -111,6 +119,12 @@
 										</td>
 									</tr>
                             	@endforeach
+								<tr>
+									<td colspan="3">Total</td>
+									<td>{{ $totalAmount }}</td>
+									<td></td>
+									<td>{{ $totalExchange }}</td>
+								</tr>
                             </tbody>
                         </table>
 

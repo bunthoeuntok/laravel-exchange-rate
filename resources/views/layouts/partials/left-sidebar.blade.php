@@ -54,7 +54,7 @@
                     <i class="menu-icon icon-user-check"></i><span>Sales</span><i class="accordion-icon fas fa-angle-left"></i>
                 </a>
                 <ul class="sub-menu">
-					@can('currency.access')
+					@can('sale.access')
                     	<li><a href="{{ route('sale.sales.index') }}" class="{{ request()->segment(2) == 'sales' ? 'active' : '' }}">Sale</a></li>
 					@endcan
 
