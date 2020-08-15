@@ -143,7 +143,7 @@
 						        var rate = data.rate.exchange_rate;
 						        var amount = $('#amount').val();
 						        var exchange_amount = rate * amount;
-								$('#rate').val(rate.toFixed(2));
+								$('#rate').val(rate.toFixed(5));
 								$('#total_exchange_amount').text(exchange_amount.toFixed(2));
 								$('#exchange_symbol').text(data.rate.to_currency_symbol);
 								$('#btn-summit').prop('disabled', false);
@@ -168,7 +168,6 @@
 							_token: '{{ csrf_token() }}'
 						},
 						success: function (data) {
-						    console.log(data)
 						   if (total_exchange_amount > data.currency_amount.total_amount) {
 						       $('#btn-summit').prop('disabled', true);
 						   } else {

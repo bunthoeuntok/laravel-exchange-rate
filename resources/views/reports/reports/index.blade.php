@@ -56,10 +56,9 @@
 					</form>
 				</div>
 			</div>
-
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Role</h5>
+                    <h5 class="card-title">Exchange Report</h5>
                     <div class="table-responsive" style="min-height: 30vh">
                          <table class="table">
                             <thead>
@@ -72,18 +71,25 @@
                                     <th scope="col">Exchange Amount</th>
                                     <th scope="col">Changed By</th>
                                     <th scope="col">Changed At</th>
-                                    <th scope="col">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
 								@php
-									$totalAmount = 0;
-									$totalExchange = 0;
+									$totalAmount = array(
+										'Riel' => 0,
+										'Dollar' => 0,
+										'Baht' => 0
+									);
+									$totalExchange = array(
+										'Riel' => 0,
+										'Dollar' => 0,
+										'Baht' => 0
+									);
 								@endphp
                             	@foreach ($sales as $index => $sale)
 									@php
-										$totalAmount += $sale->amount;
-										$totalExchange += $sale->total_exchange_amount;
+										$totalAmount[$sale->from_currency_name] += $sale->amount;
+										$totalExchange[$sale->to_currency_name] += $sale->total_exchange_amount;
 									@endphp
 	                                <tr>
 	                                    <th scope="row">{{ ++$index }}</th>
@@ -100,35 +106,66 @@
 										</td>
 	                                    <td>{{ $sale->user_name }}</td>
 	                                    <td>{{ $sale->created_at }}</td>
-										<td>
-	                                    	<div class="btn-group">
-	                                            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-	                                                <i class="fa fa-align-justify" aria-hidden="true"></i>
-	                                            </button>
-	                                            <div class="dropdown-menu pull-right">
-													<div class="dropdown-divider"></div>
-													<a class="dropdown-item" href="#">
-														<form class="delete-record" action="{{ route('reports', $sale->id) }}" method="post">
-															@method('delete')
-															@csrf
-															<button style="border: 0; outline: 0; background-color: transparent; padding-left: -7px;">Delete</button>
-														</form>
-													</a>
-	                                            </div>
-	                                        </div>
-										</td>
+
 									</tr>
                             	@endforeach
-								<tr>
-									<td colspan="3">Total</td>
-									<td>{{ $totalAmount }}</td>
-									<td></td>
-									<td>{{ $totalExchange }}</td>
-								</tr>
+
                             </tbody>
                         </table>
-
                     </div>
+
+					<div class="row">
+						<div class="col-md-12">
+
+						<H2>Total Summary</H2>
+						</div>
+						<div class="col-md-6">
+							<table class="table">
+								<thead>
+								<tr>
+									<th>No</th>
+									<th>Currency Name</th>
+									<th>Amount</th>
+								</tr>
+								</thead>
+								<tbody>
+								@php
+									$i = 0;
+								@endphp
+									@foreach ($totalAmount as $currency => $amount)
+										<tr>
+											<td>{{ ++$i }}</td>
+											<td>{{ $currency }}</td>
+											<td>{{ $amount }}</td>
+										</tr>
+									@endforeach
+								</tbody>
+							</table>
+						</div>
+						<div class="col-md-6">
+							<table class="table">
+								<thead>
+								<tr>
+									<th>No</th>
+									<th>Currency Name</th>
+									<th>Amount</th>
+								</tr>
+								</thead>
+								<tbody>
+								@php
+									$i = 0;
+								@endphp
+									@foreach ($totalExchange as $currency => $amount)
+										<tr>
+											<td>{{ ++$i }}</td>
+											<td>{{ $currency }}</td>
+											<td>{{ $amount }}</td>
+										</tr>
+									@endforeach
+								</tbody>
+							</table>
+						</div>
+					</div>
                 </div>
             </div>
         </div>

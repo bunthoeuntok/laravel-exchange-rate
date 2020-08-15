@@ -1,6 +1,6 @@
 <div class="secondary-sidebar">
     <div class="secondary-sidebar-bar">
-        <a href="#" class="logo-box">concept</a>
+        <a href="{{ route('home') }}" class="logo-box">X-change</a>
     </div>
     <div class="secondary-sidebar-profile">
         <a href="{{ route('home') }}">
@@ -51,11 +51,11 @@
             </li>
             <li class="{{ request()->segment(1) == 'sale' ? 'active-page' : '' }}">
                 <a href="javascript:void(0)">
-                    <i class="menu-icon icon-user-check"></i><span>Sales</span><i class="accordion-icon fas fa-angle-left"></i>
+                    <i class="menu-icon icon-user-check"></i><span>Exchange</span><i class="accordion-icon fas fa-angle-left"></i>
                 </a>
                 <ul class="sub-menu">
 					@can('sale.access')
-                    	<li><a href="{{ route('sale.sales.index') }}" class="{{ request()->segment(2) == 'sales' ? 'active' : '' }}">Sale</a></li>
+                    	<li><a href="{{ route('sale.sales.index') }}" class="{{ request()->segment(2) == 'sales' ? 'active' : '' }}">Exchange</a></li>
 					@endcan
 
                 </ul>
@@ -95,7 +95,7 @@
                 </a>
                 <ul class="sub-menu">
 					@can('salereport.access')
-                    	<li><a href="{{ route('report.reports.index') }}" class="{{ request()->segment(2) == 'reports' ? 'active' : '' }}">Sale Report</a></li>
+                    	<li><a href="{{ route('report.reports.index') }}" class="{{ request()->segment(2) == 'reports' ? 'active' : '' }}">Exchange Report</a></li>
 					@endcan
 					@can('salereport.access')
                     	<li><a href="{{ route('report.rate-reports.index') }}" class="{{ request()->segment(2) == 'users' ? 'active' : '' }}">Rate Report</a></li>

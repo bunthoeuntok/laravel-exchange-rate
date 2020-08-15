@@ -28,20 +28,25 @@ class ReportController extends Controller
      */
     public function index()
     {
+    	$currencies = Currency::all();
     	$users = User::all();
 		$sales = $this->reportRepository->saleReport();
         return view('reports.reports.index', [
         	'sales' => $sales,
-			'users' => $users
+			'users' => $users,
+			'currencies' => $currencies
 		]);
     }
 
     function search(Request $request) {
+    	$currencies = Currency::all();
     	$users = User::all();
 		$sales = $this->reportRepository->saleReportSearch($request);
         return view('reports.reports.index', [
         	'sales' => $sales,
-			'users' => $users
+			'users' => $users,
+			'currencies' => $currencies
+
 		]);
 	}
 
