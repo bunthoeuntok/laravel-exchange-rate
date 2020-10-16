@@ -63,7 +63,7 @@
 							<div class="divider"></div>
 							<div class="col-sm-12 flex-end">
 								<input type="submit" name="submit" value="Save" class="btn btn-primary mr-2">
-								<a href="{{ route('currency.rates.index') }}" class="btn btn-danger">Cancel</a>
+								<a href="{{ route('currency.transfers.index') }}" class="btn btn-danger">Cancel</a>
 							</div>
 						</div>
 

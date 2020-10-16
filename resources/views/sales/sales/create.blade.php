@@ -74,12 +74,12 @@
 									</h5>
 								</div>
 
-{{--                                <div class="form-group">--}}
-{{--                                    <div class="custom-control custom-checkbox">--}}
-{{--                                        <input type="checkbox" class="custom-control-input">--}}
-{{--                                        <label class="custom-control-label" for="remember">Remember password</label>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
+                                <div class="form-group">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="is_print">
+                                        <label class="custom-control-label" for="is_print">Print Receipt</label>
+                                    </div>
+                                </div>
                                 <button type="submit" id="btn-summit" disabled class="btn btn-lg btn-block btn-primary">EXCHANGE</button>
                             </form>
                         </div>
